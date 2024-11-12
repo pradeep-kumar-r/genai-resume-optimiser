@@ -1,3 +1,7 @@
+# Custom
+.env
+orig_req.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
