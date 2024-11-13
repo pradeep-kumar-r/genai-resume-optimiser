@@ -1,23 +1,15 @@
-import logging
+"""Logging Module using a convenient loguru wrapper library"""
+
 import os
-import sys
+from loguru import logger
 
 
-LOG_FORMAT = "[ %(asctime)s ] - %(name)s - %(levelname)s - %(message)s"
-LOG_LEVEL = logging.INFO
 LOG_DIR = "../logs"
 os.makedirs(LOG_DIR,exist_ok=True)
 LOG_FILENAME = "running_logs.log"
-LOG_PATH = os.path.join(os.getcwd(), LOG_DIR, LOG_FILENAME)
+LOG_PATH = os.path.join(LOG_DIR, LOG_FILENAME)
+logger.add(LOG_PATH)
 
-
-logging.basicConfig(
-    format=LOG_FORMAT,
-    level=LOG_LEVEL,
-    handlers=[
-        logging.StreamHandler(sys.stdout),
-        logging.FileHandler(LOG_PATH)
-    ]
-)
-
-logger = logging.getLogger('resume-optimiser-logger')
+if __name__ == "__main__":
+    logger.info("Testing whether logging works")
+    
